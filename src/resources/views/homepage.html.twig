@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+iTVPdownloader
+{% endblock %}
+
+{% block header %}
+<h1>iTVPdownloader
+{% endblock %}
+
+{% block content %}
+
+{% if video|default(false) %}
+<p>Kliknij zapisz link jako</p>
+<a href="{{ video }}">{{ video }}</a>
+{% else %}
+<form action="#" method="post">
+    {{ form_widget(form) }}
+    <input type="submit" name="submit" />
+</form>
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+&copy; mmx3.pl
+{% endblock %}
