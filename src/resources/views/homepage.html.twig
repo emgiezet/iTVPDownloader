@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-iTVPdownloader
+iTVPdownloader - by mGz
 {% endblock %}
 
 {% block header %}
-<h1>iTVPdownloader
+<h1>iTVPdownloader</h1>
 {% endblock %}
 
 {% block content %}
@@ -14,13 +14,14 @@ iTVPdownloader
 <p>Kliknij zapisz link jako</p>
 <a href="{{ video }}">{{ video }}</a>
 {% else %}
+<p> Wklej adres interesującego ciebie filmu z <a href="http://itvp.pl">iTVP.pl</a></p>
 <form action="#" method="post">
     {{ form_widget(form) }}
-    <input type="submit" name="submit" />
+    <input type="submit" name="submit" value="Ściągnij" />
 </form>
 {% endif %}
 {% endblock %}
 
 {% block footer %}
-&copy; mmx3.pl
+&copy; <a href="http://mmx3.pl">mmx3.pl</a> 2012
 {% endblock %}
