@@ -4,22 +4,48 @@
 iTVPdownloader - by mGz
 {% endblock %}
 
-{% block header %}
-<h1>iTVPdownloader</h1>
-{% endblock %}
-
 {% block content %}
-
-{% if video|default(false) %}
-<p>Kliknij zapisz link jako</p>
-<a href="{{ video }}">{{ video }}</a>
+<div class="span10">
+{% if error|default(false) %}
+	<div class="alert alert-error">
+		<a class="close">×</a>
+		<strong>Error</strong><p>Nie udało się znaleźć filmu na podanej przez Ciebie stronie!</p><p>Sprawdź link i wyszukaj jeszcze raz.</p> 
+	</div>
+	<form action="#" method="post" class="well form-search">
+		{% if form_errors(form) %}
+			<div class="alert alert-error">
+			{{ form_errors(form) }}
+			</div>
+		{% endif %}
+		{{ form_widget(form.url, {'attr':{'class':'input-xlarge', 'placeholder':'Adres filmu'}}) }}
+		{{ form_rest(form) }}
+		<input type="submit" name="submit" value="Ściągnij" class="btn btn-primary" />
+	</form>
 {% else %}
-<p> Wklej adres interesującego ciebie filmu z <a href="http://itvp.pl">iTVP.pl</a></p>
-<form action="#" method="post">
-    {{ form_widget(form) }}
-    <input type="submit" name="submit" value="Ściągnij" />
-</form>
+	{% if video|default(false) %}
+		<p>Kliknij prawym klawiszem i "zapisz link jako"</p>
+			<p>
+		<a href="{{ video }}" class="btn btn-success"><i class="icon-ok icon-white"></i> Sukces!</a>
+			</p>
+		<p>
+			<a href="{{ video }}">{{ video }}</a> ({{ data.file_size|default('nie podano rozmiaru pliku video') }} b)
+		</p>
+		<a href="/" class="btn btn-primary"><i class="icon-random icon-white"></i>Wyszukaj jeszcze raz.</a>
+	{% else %}
+	<p> Wklej adres interesującego ciebie filmu z <a href="http://itvp.pl">iTVP.pl</a></p>
+	<form action="#" method="post" class="well form-search">
+		{% if form_errors(form) %}
+			<div class="alert alert-error">
+			{{ form_errors(form) }}
+			</div>
+		{% endif %}
+		{{ form_widget(form.url, {'attr':{'class':'input-xlarge', 'placeholder':'Adres filmu'}}) }}
+		{{ form_rest(form) }}
+		<input type="submit" name="submit" value="Ściągnij" class="btn btn-primary" />
+	</form>
+	{% endif %}
 {% endif %}
+</div>
 {% endblock %}
 
 {% block footer %}

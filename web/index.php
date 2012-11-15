@@ -76,15 +76,19 @@ foreach ($pages as $route => $view) {
 												$json = $browser->get($url);
 												$json = $json->getContent();
 												$data = json_decode($json);
-
 												$video_url = $data->video_url;
 												$params['video'] = $video_url;
+												$params['data'] = $data;
 											}
 
 										}
 									}
+									if(!$video_url)
+									{
+										$params['error'] = true;
+									}
 								} else {
-									$app->redirect('/error');
+									$params['error'] = true;
 								}
 							}
 							$params['form'] = $form->createView();
