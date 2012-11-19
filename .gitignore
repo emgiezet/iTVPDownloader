@@ -3,6 +3,7 @@
 *.swp
 *.out
 .buildpath
+.project
 logs/*
 vendor
 composer.phar
