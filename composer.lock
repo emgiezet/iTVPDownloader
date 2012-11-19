@@ -1,5 +1,5 @@
 {
-    "hash": "b53b58ea1aac54d0d040d0050ff21b63",
+    "hash": "14e9bdb61c9a7d84bf41dfafbb3b7c44",
     "packages": [
         {
             "name": "kriswallsmith/buzz",
@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog",
-                "reference": "bcb51e01406965ebd030d4b99eb199a9226c3fef"
+                "reference": "b23cfd3d6ce0b6c050dda723040b83a1a6d7637e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/Seldaek/monolog/archive/bcb51e01406965ebd030d4b99eb199a9226c3fef.zip",
-                "reference": "bcb51e01406965ebd030d4b99eb199a9226c3fef",
+                "url": "https://github.com/Seldaek/monolog/archive/b23cfd3d6ce0b6c050dda723040b83a1a6d7637e.zip",
+                "reference": "b23cfd3d6ce0b6c050dda723040b83a1a6d7637e",
                 "shasum": ""
             },
             "require": {
@@ -71,7 +71,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "1352653384",
+            "time": "1352907970",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -83,7 +83,24 @@
                 "psr-0": {
                     "Monolog": "src/"
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Logging for PHP 5.3",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging"
+            ]
         },
         {
             "name": "pimple/pimple",
@@ -117,17 +134,105 @@
             }
         },
         {
+            "name": "predis/predis",
+            "version": "0.7.x-dev",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/nrk/predis.git",
+                "reference": "5859578046f0375eac5df75e5dd514d44d38f4ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/nrk/predis/archive/5859578046f0375eac5df75e5dd514d44d38f4ae.zip",
+                "reference": "5859578046f0375eac5df75e5dd514d44d38f4ae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "1346694780",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Predis": "lib/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete PHP client library for Redis",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "redis",
+                "predis"
+            ]
+        },
+        {
+            "name": "predis/service-provider",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/nrk/PredisServiceProvider.git",
+                "reference": "v0.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/nrk/PredisServiceProvider/zipball/v0.3.0",
+                "reference": "v0.3.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "predis/predis": "0.7.*@stable",
+                "silex/silex": "1.0.*"
+            },
+            "time": "2012-07-14 02:18:27",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Predis\\Silex": "lib/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Predis service provider for the Silex microframework",
+            "homepage": "https://github.com/nrk/PredisServiceProvider",
+            "keywords": [
+                "redis",
+                "silex",
+                "predis"
+            ]
+        },
+        {
             "name": "silex/silex",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Silex.git",
-                "reference": "960f097be06f24d7d112deaa68fa904796435b85"
+                "reference": "7e5e1f88990c010351093691a7ca01e2e94c2706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Silex/archive/960f097be06f24d7d112deaa68fa904796435b85.zip",
-                "reference": "960f097be06f24d7d112deaa68fa904796435b85",
+                "url": "https://github.com/fabpot/Silex/archive/7e5e1f88990c010351093691a7ca01e2e94c2706.zip",
+                "reference": "7e5e1f88990c010351093691a7ca01e2e94c2706",
                 "shasum": ""
             },
             "require": {
@@ -162,7 +267,7 @@
                 "symfony/css-selector": ">=2.1,<2.3-dev",
                 "symfony/dom-crawler": ">=2.1,<2.3-dev"
             },
-            "time": "1352464470",
+            "time": "1352821595",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -174,7 +279,26 @@
                 "psr-0": {
                     "Silex": "src/"
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch",
+                    "homepage": "http://wiedler.ch/igor/"
+                }
+            ],
+            "description": "The PHP micro-framework based on the Symfony2 Components",
+            "homepage": "http://silex.sensiolabs.org",
+            "keywords": [
+                "microframework"
+            ]
         },
         {
             "name": "symfony/config",
@@ -312,18 +436,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation",
-                "reference": "a961c2ca3106a074bfb5cbadc7e10423123d1a82"
+                "reference": "2ec414314c836e418301a7a251e2e4d5f6d46924"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/HttpFoundation/archive/a961c2ca3106a074bfb5cbadc7e10423123d1a82.zip",
-                "reference": "a961c2ca3106a074bfb5cbadc7e10423123d1a82",
+                "url": "https://github.com/symfony/HttpFoundation/archive/2ec414314c836e418301a7a251e2e4d5f6d46924.zip",
+                "reference": "2ec414314c836e418301a7a251e2e4d5f6d46924",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
-            "time": "1352728711",
+            "time": "1352824146",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -336,7 +460,22 @@
                     "Symfony\\Component\\HttpFoundation": "",
                     "SessionHandlerInterface": "Symfony/Component/HttpFoundation/Resources/stubs"
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpFoundation Component",
+            "homepage": "http://symfony.com"
         },
         {
             "name": "symfony/http-kernel",
@@ -345,12 +484,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel",
-                "reference": "9c75c75993f009c3183696ab9ed7320f3df351b8"
+                "reference": "5b46b62217dab8296098607100500bb7bb3087bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/HttpKernel/archive/9c75c75993f009c3183696ab9ed7320f3df351b8.zip",
-                "reference": "9c75c75993f009c3183696ab9ed7320f3df351b8",
+                "url": "https://github.com/symfony/HttpKernel/archive/5b46b62217dab8296098607100500bb7bb3087bd.zip",
+                "reference": "5b46b62217dab8296098607100500bb7bb3087bd",
                 "shasum": ""
             },
             "require": {
@@ -376,7 +515,7 @@
                 "symfony/dependency-injection": "2.1.*",
                 "symfony/finder": "2.1.*"
             },
-            "time": "1352544437",
+            "time": "1352985780",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -388,7 +527,22 @@
                 "psr-0": {
                     "Symfony\\Component\\HttpKernel": ""
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony HttpKernel Component",
+            "homepage": "http://symfony.com"
         },
         {
             "name": "symfony/locale",
@@ -397,12 +551,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Locale",
-                "reference": "83158222fb57a935ea82bf8203e11f5368f3721a"
+                "reference": "efa546b83e459ba28da0523de9b7d67760d733e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Locale/archive/83158222fb57a935ea82bf8203e11f5368f3721a.zip",
-                "reference": "83158222fb57a935ea82bf8203e11f5368f3721a",
+                "url": "https://github.com/symfony/Locale/archive/efa546b83e459ba28da0523de9b7d67760d733e3.zip",
+                "reference": "efa546b83e459ba28da0523de9b7d67760d733e3",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +565,7 @@
             "suggest": {
                 "ext-intl": ">=5.3.3"
             },
-            "time": "1352465740",
+            "time": "1352824146",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -423,7 +577,22 @@
                 "psr-0": {
                     "Symfony\\Component\\Locale": ""
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Locale Component",
+            "homepage": "http://symfony.com"
         },
         {
             "name": "symfony/options-resolver",
@@ -464,12 +633,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing",
-                "reference": "8fdb2e2a1dcd3b58e187b95a301e2ebe021ea013"
+                "reference": "ad25445e4d61c32c012eed3d75e9f0bc7298f064"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Routing/archive/8fdb2e2a1dcd3b58e187b95a301e2ebe021ea013.zip",
-                "reference": "8fdb2e2a1dcd3b58e187b95a301e2ebe021ea013",
+                "url": "https://github.com/symfony/Routing/archive/ad25445e4d61c32c012eed3d75e9f0bc7298f064.zip",
+                "reference": "ad25445e4d61c32c012eed3d75e9f0bc7298f064",
                 "shasum": ""
             },
             "require": {
@@ -486,7 +655,7 @@
                 "symfony/config": "2.2.*",
                 "symfony/yaml": "2.2.*"
             },
-            "time": "1352722009",
+            "time": "1353004236",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -498,7 +667,22 @@
                 "psr-0": {
                     "Symfony\\Component\\Routing\\": ""
                 }
-            }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Routing Component",
+            "homepage": "http://symfony.com"
         },
         {
             "name": "symfony/translation",
@@ -611,12 +795,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Validator",
-                "reference": "0097d0e3147f3be5973317dd93eb847259a4df96"
+                "reference": "e5359af4e6594a5faa6395c200d3418e97a9cfbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/Validator/archive/0097d0e3147f3be5973317dd93eb847259a4df96.zip",
-                "reference": "0097d0e3147f3be5973317dd93eb847259a4df96",
+                "url": "https://github.com/symfony/Validator/archive/e5359af4e6594a5faa6395c200d3418e97a9cfbe.zip",
+                "reference": "e5359af4e6594a5faa6395c200d3418e97a9cfbe",
                 "shasum": ""
             },
             "require": {
@@ -632,7 +816,7 @@
                 "symfony/http-foundation": "2.1.*",
                 "symfony/yaml": "2.1.*"
             },
-            "time": "1352451171",
+            "time": "1352824146",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -667,22 +851,22 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "b16765ce8f8edd227c6c90dba489326001fd348a"
+                "reference": "7072d8f54f79b878cd17c4192d8a4a1f45bef173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/b16765ce8f8edd227c6c90dba489326001fd348a.zip",
-                "reference": "b16765ce8f8edd227c6c90dba489326001fd348a",
+                "url": "https://github.com/fabpot/Twig/archive/7072d8f54f79b878cd17c4192d8a4a1f45bef173.zip",
+                "reference": "7072d8f54f79b878cd17c4192d8a4a1f45bef173",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "1352654530",
+            "time": "1353087895",
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "installation-source": "source",
@@ -690,7 +874,25 @@
                 "psr-0": {
                     "Twig_": "lib/"
                 }
-            }
+            },
+            "license": [
+                "BSD-3"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ]
         }
     ],
     "packages-dev": null,
@@ -698,7 +900,7 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ]
+    "stability-flags": {
+        "predis/service-provider": 0
+    }
 }

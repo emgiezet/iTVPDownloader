@@ -20,6 +20,8 @@ return array(
     'Symfony\\Bridge\\Twig' => $vendorDir . '/symfony/twig-bridge/',
     'Silex' => $vendorDir . '/silex/silex/src/',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs',
+    'Predis\\Silex' => $vendorDir . '/predis/service-provider/lib/',
+    'Predis' => $vendorDir . '/predis/predis/lib/',
     'Pimple' => $vendorDir . '/pimple/pimple/lib/',
     'Monolog' => $vendorDir . '/monolog/monolog/src/',
     'Buzz' => $vendorDir . '/kriswallsmith/buzz/lib/',

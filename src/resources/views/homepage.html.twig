@@ -5,7 +5,11 @@ iTVPdownloader - by mGz
 {% endblock %}
 
 {% block content %}
-<div class="span10">
+<div class="span7">
+	<div class="alert alert-info">
+		<a class="close">×</a>
+		<strong>Uwaga!</strong>Ta strona nie popiera piractwa. Służy tylko temu by ludzie, którzy płacą abonament a używają innych systemów niż Microsoft Windows. Mieli dostęp do materiałów publikowanych przez Telewizję Polską S.A. na stronie itvp.pl.
+	</div>
 {% if error|default(false) %}
 	<div class="alert alert-error">
 		<a class="close">×</a>
@@ -23,12 +27,12 @@ iTVPdownloader - by mGz
 	</form>
 {% else %}
 	{% if video|default(false) %}
-		<p>Kliknij prawym klawiszem i "zapisz link jako"</p>
-			<p>
-		<a href="{{ video }}" class="btn btn-success"><i class="icon-ok icon-white"></i> Sukces!</a>
-			</p>
+		<div class="alert alert-success">
+			<a class="close">×</a>
+			<strong>Link do filmu został znaleziony!</strong> Kliknij prawym klawiszem a następnie wybierz "zapisz link jako"
+		</div>
 		<p>
-			<a href="{{ video }}">{{ video }}</a> ({{ data.file_size|default('nie podano rozmiaru pliku video') }} b)
+		<a href="{{ video }}" class="btn btn-success"><i class="icon-ok icon-white"></i> Pobierz!</a> ({{ data.file_size|default('nie podano rozmiaru pliku video') }} b)
 		</p>
 		<a href="/" class="btn btn-primary"><i class="icon-random icon-white"></i>Wyszukaj jeszcze raz.</a>
 	{% else %}
@@ -45,6 +49,32 @@ iTVPdownloader - by mGz
 	</form>
 	{% endif %}
 {% endif %}
+	<span class='st_facebook_hcount' displayText='Facebook'></span>
+	<span class='st_twitter_hcount' displayText='Tweet'></span>
+	<!-- Place this tag where you want the +1 button to render. -->
+	<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+	<!-- Place this tag after the last +1 button tag. -->
+	<script type="text/javascript">
+		window.___gcfg = {lang: 'pl'};
+		(function() {
+			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/plusone.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		})();
+	</script>
+</div>
+<div class="span5">
+<script type="text/javascript" id="AdTaily_Widget" src="http://static.adtaily.pl/widget.js#DTjR067KZQoj1X1"></script>
+<noscript><a href="http://www.adtaily.pl">Reklama w internecie</a></noscript>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=244336245647022";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="http://www.facebook.com/ItvpDownloader" data-width="292" data-show-faces="true" data-stream="false" data-header="false"></div>
 </div>
 {% endblock %}
 

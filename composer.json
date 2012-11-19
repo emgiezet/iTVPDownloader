@@ -4,11 +4,12 @@
         "twig/twig": ">=1.8,<2.0-dev",
         "symfony/twig-bridge": "2.1.*",
         "symfony/form": "2.1.*",
-        "symfony/validator": "2.1.*"
+        "symfony/validator": "2.1.*",
         "symfony/config": "2.1.*",
         "symfony/translation": "2.1.*",
         "monolog/monolog": ">=1.0.0",
-        "kriswallsmith/buzz": "*"
+        "kriswallsmith/buzz": "*",
+        "predis/service-provider": "0.3.*@stable"
     },
     "minimum-stability": "dev"
 }
