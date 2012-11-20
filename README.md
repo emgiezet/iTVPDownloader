@@ -9,9 +9,16 @@ wersja live:
 
 [![endorse](http://api.coderwall.com/emgiezet/endorsecount.png)](http://coderwall.com/emgiezet)
 
+Instalacja:
+===
+
+
+    php composer.phar update
+    chmod 777 logs -R
+
 Bugi:
 ====
-1. Nie działają linki po https (work in progress)
+1. Nie działają linki po https (work in progress) - zgłoszone przez[blinxdxb](http://www.wykop.pl/ludzie/blinxdxb/) 
 
 
 ToDo:
@@ -19,7 +26,9 @@ ToDo:
 
 * support dla http://beta.vod.tvp.pl
 * support do udostępniania pobranych linków na FB
-* top10 pobranych linków.
+* top10 pobranych linków (z redisa).
+* faq, polityka-prywatności.
+* build na travis.ci i testy phpunit
 
 Sugestie:
 ====
