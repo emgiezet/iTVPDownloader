@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
 include_path=0;/itvpdownloader
+org.eclipse.php.core.phpForamtterIndentationSize=4
+org.eclipse.php.core.phpForamtterUseTabs=false

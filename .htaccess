@@ -1,3 +1,7 @@
+php_value error_reporting -1
+php_value display_errors stdout
+php_flag display_startup_errors on
+
 
 <IfModule mod_rewrite.c>
     Options -MultiViews
