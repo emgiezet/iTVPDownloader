@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 use Silex\WebTestCase;
 
-class InitialTest extends WebTestCase
+class InitialTest extends \PHPUnit_Framework_TestCase
 {
     public function createApplication()
     {

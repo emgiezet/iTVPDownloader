@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\Twig\Extension\FormExtension;
 use Silex\Provider\FormServiceProvider;
 use Silex\Provider\MonologServiceProvider;
-
 use Buzz\Message;
 
 $app = new Silex\Application();
+
 
 $app['debug'] = true;
 
@@ -35,11 +35,10 @@ $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app
         ->register(new Silex\Provider\TranslationServiceProvider(),
                 array('translator.messages' => array(),));
-$services = json_decode(getenv("VCAP_SERVICES"));
 
-// $services = json_decode(
-// 		'{"redis-2.2":[{"name":"itvp-redis","label":"redis-2.2","plan":"free","tags":["redis","redis-2.2","key-value","nosql","redis-2.2","redis"],"credentials":{"hostname":"10.0.24.83","host":"10.0.24.83","port":5078,"password":"7d0dfe25-3b48-4d73-96a5-c712b7eed871","name":"272d9385-326a-4a4e-9bd6-52740a8b2d85"}}],"mysql-5.1":[{"name":"itvp-db","label":"mysql-5.1","plan":"free","tags":["mysql","mysql-5.1","relational","mysql-5.1","mysql"],"credentials":{"name":"d5a78e1e5cc9142bf865208d1b1158060","hostname":"eu01-user01.cbxizyg0fwcn.eu-west-1.rds.amazonaws.com","host":"eu01-user01.cbxizyg0fwcn.eu-west-1.rds.amazonaws.com","port":3306,"user":"uZPHdaVC1Th9n","username":"uZPHdaVC1Th9n","password":"pP8yA2GGDhVdX"}}]}');
+$services = json_decode(getenv("VCAP_SERVICES"));
 $redisConfig = null;
+
 if (is_object($services)) {
     foreach ($services as $key => $val) {
         if ($key === 'redis-2.2') {
@@ -50,7 +49,6 @@ if (is_object($services)) {
 
     }
 }
-// var_export(getenv("VCAP_SERVICES"));
 if (is_object($redisConfig)) {
     $redisParams = array('host' => $redisConfig->hostname,
             'port' => $redisConfig->port, 'password' => $redisConfig->password,

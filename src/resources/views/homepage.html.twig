@@ -66,16 +66,17 @@ iTVPdownloader - by mGz
 <div class="span5">
 <script type="text/javascript" id="AdTaily_Widget" src="http://static.adtaily.pl/widget.js#DTjR067KZQoj1X1"></script>
 <noscript><a href="http://www.adtaily.pl">Reklama w internecie</a></noscript>
-
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pl_PL/all.js#xfbml=1&appId=244336245647022";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like-box" data-href="http://www.facebook.com/ItvpDownloader" data-width="292" data-show-faces="true" data-stream="false" data-header="false"></div>
-</div>
+<script type="text/javascript">
+$(document).ready(function() { 
+    $('#facebookHolder').append('<div id="fb-root"></div>'); 
+    $('#facebookHolder').append('<fb:like-box href="http://www.facebook.com/ItvpDownloader" width="292" show-faces="true" stream="false" header="false"></fb:like-box>'); 
+  
+    jQuery.getScript('http://connect.facebook.net/en_US/all.js#xfbml=1', function() { 
+        FB.init({status: true, cookie: true, xfbml: true}); 
+    }); 
+});
+</script>
+<div id="facebookHolder"></div>
 {% endblock %}
 
 {% block footer %}
