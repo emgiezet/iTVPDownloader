@@ -12,25 +12,20 @@ use Buzz\Message;
 
 $app = new Silex\Application();
 
-
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\SessionServiceProvider());
-
+$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 $app->register(new FormServiceProvider());
-
 $app
         ->register(new Silex\Provider\TranslationServiceProvider(),
                 array('locale_fallback' => 'en',));
-
 $app
         ->register(new Silex\Provider\TwigServiceProvider(),
                 array('twig.path' => __DIR__ . '/../src/resources/views',));
-
 $app
         ->register(new Silex\Provider\MonologServiceProvider(),
                 array('monolog.logfile' => __DIR__ . '/../logs/development.log',));
-
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app
         ->register(new Silex\Provider\TranslationServiceProvider(),
@@ -75,7 +70,8 @@ foreach ($pages as $route => $view) {
                             $data = array();
 
                             $form = $app['form.factory']
-                                    ->createBuilder('form', $data,  array('csrf_protection' => false))
+                                    ->createBuilder('form', $data,
+                                            array('csrf_protection' => false))
                                     ->add('url', 'text',
                                             array(
                                                     'constraints' => new Assert\Url()))
@@ -88,7 +84,8 @@ foreach ($pages as $route => $view) {
                                     $data = $form->getData();
 
                                     $name = $data['url'];
-                                    $name = str_replace('https://', 'http://', $name);
+                                    $name = str_replace('https://', 'http://',
+                                            $name);
 
                                     $cached = $app['predis']
                                             ->get(
@@ -185,7 +182,10 @@ foreach ($pages as $route => $view) {
                         default:
                             $body = $app['twig']
                                     ->render($view . '.html.twig', $params);
-                            return new Response($body, 200, array('Cache-Control' => 's-maxage=0, max-age=0, must-revalidate, no-cache', 'Pragma'=>'no-cache'));
+                            return new Response($body, 200,
+                                    array(
+                                            'Cache-Control' => 's-maxage=0, max-age=0, must-revalidate, no-cache',
+                                            'Pragma' => 'no-cache'));
                             break;
                         }
 
