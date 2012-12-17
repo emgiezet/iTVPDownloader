@@ -104,7 +104,8 @@ foreach ($pages as $route => $view) {
                                                 "/object_id+\:+\'+([0-9]{1,})+\'\,/",
                                                 $content, $matches);
                                         foreach ($matches as $match) {
-                                            if (is_array($match)) {
+                                            if (is_array($match)
+                                                    && isset($match[0])) {
                                                 if (intval($match[0]) > 1) {
                                                     $url = 'http://www.tvp.pl/pub/stat/videofileinfo?video_id='
                                                             . $match[0];
