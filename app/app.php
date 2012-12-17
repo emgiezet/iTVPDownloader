@@ -81,7 +81,7 @@ foreach ($pages as $route => $view) {
                                 $form->bind($request);
 
                                 if ($form->isValid()) {
-                                    $data = $form->getData();
+                                    $data = $form->getData();    
 
                                     $name = $data['url'];
                                     $name = str_replace('https://', 'http://',
@@ -115,6 +115,10 @@ foreach ($pages as $route => $view) {
                                                     $video_url = $data
                                                             ->video_url;
 
+                                                }
+                                                else
+                                                {
+                                                    $video_url = false;
                                                 }
 
                                             }
