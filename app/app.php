@@ -87,42 +87,134 @@ foreach ($pages as $route => $view) {
                                     $name = str_replace('https://', 'http://',
                                             $name);
 
-                                    $cached = $app['predis']
-                                            ->get(
-                                                    '{url:' . urlencode($name)
-                                                            . '}:path');
+                                    //                                     $cached = $app['predis']
+                                    //                                             ->get(
+                                    //                                                     '{url:' . urlencode($name)
+                                    //                                                             . '}:path');
+                                    $cached = NULL;
                                     if ($cached === NULL) {
                                         $browser = new Buzz\Browser();
-                                        /**
-                                        @var Buzz\Response
-                                         */
-                                        $response = $browser->get($name);
 
-                                        $content = $response->getContent();
-                                        $matches = array();
+                                        $vodMatches = array();
                                         preg_match_all(
-                                                "/object_id+\:+\'+([0-9]{1,})+\'\,/",
-                                                $content, $matches);
-                                        foreach ($matches as $match) {
-                                            if (is_array($match)
-                                                    && isset($match[0])) {
-                                                if (intval($match[0]) > 1) {
-                                                    $url = 'http://www.tvp.pl/pub/stat/videofileinfo?video_id='
-                                                            . $match[0];
-                                                    $json = $browser->get($url);
-                                                    $json = $json->getContent();
-                                                    $data = json_decode($json);
-                                                    $video_url = $data
-                                                            ->video_url;
+                                                '/^(https?):\/\/beta.vod.tvp.pl\/+(.*)\/+wideo+\/+(.*)+\/+([0-9]{1,})/',
+                                                $name, $vodMatches);
+
+                                        if (!empty($vodMatches)) {
+                                            //Zasysamy z VOD tvp.pl!
+                                            // Init Session
+                                            $movieId = $vodMatches[4][0];
+
+                                            $request = new \Buzz\Message\Request(
+                                                    'GET',
+                                                    '/pub/sess/initsession',
+                                                    'http://www.tvp.pl');
+                                            $request
+                                                    ->addHeader(
+                                                            'User-agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)');
+                                            $response = new \Buzz\Message\Response();
+                                            $browser->send($request, $response);
+
+                                            //Viewrequest
+
+                                            $request2 = new \Buzz\Message\Request(
+                                                    'GET',
+                                                    '/pub/sess/viewrequest?object_id='
+                                                            . $movieId,
+                                                    'http://www.tvp.pl');
+                                            $response2 = new \Buzz\Message\Response();
+
+                                            $browser
+                                                    ->send($request2,
+                                                            $response2);
+
+                                            $cookieJar = new \Buzz\Util\CookieJar();
+                                            $cookieJar
+                                                    ->processSetCookieHeaders(
+                                                            $request2,
+                                                            $response2);
+
+                                            $url = '/shared/cdn/tokenizer_v2.php?object_id='
+                                                    . $movieId
+                                                    . '&sdt_version=sdt-v2';
+
+                                            $request3 = new \Buzz\Message\Request(
+                                                    'GET', $url,
+                                                    'http://www.tvp.pl');
+
+                                            $request3
+                                                    ->addHeader(
+                                                            'User-agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)');
+                                            $cookies = '';
+                                            foreach ($cookieJar->getCookies() as $cookie) {
+                                                $cookies .= $cookie->getName()
+                                                        . '='
+                                                        . $cookie->getValue()
+                                                        . '; ';
+                                            }
+                                            $request3
+                                                    ->addHeader(
+                                                            'Cookie: '
+                                                                    . $cookies);
+                                            
+                                            $json = new \Buzz\Message\Response();
+
+                                            $browser->send($request3, $json);
+                                            //echo('<pre>');
+                                            //var_dump($request3);
+                                            
+                                            
+                                            $json = $json->getContent();
+                                            $data = json_decode($json);
+                                            //var_dump($data);
+                                            
+                                            //die;
+                                            if (is_object($data)) {
+                                                if ($data->status == 'OK') {
+                                                    $video_url = $data->url;
+                                                } else {
+                                                    $video_url = false;
+                                                }
+                                            } else {
+                                                $video_url = false;
+                                            }
+
+                                        } else {
+                                            /**
+                                            @var Buzz\Response
+                                             */
+                                            $response = $browser->get($name);
+
+                                            $content = $response->getContent();
+                                            $matches = array();
+                                            preg_match_all(
+                                                    "/object_id+\:+\'+([0-9]{1,})+\'\,/",
+                                                    $content, $matches);
+                                            foreach ($matches as $match) {
+                                                if (is_array($match)
+                                                        && isset($match[0])) {
+                                                    if (intval($match[0]) > 1) {
+                                                        $url = 'http://www.tvp.pl/pub/stat/videofileinfo?video_id='
+                                                                . $match[0];
+                                                        $json = $browser
+                                                                ->get($url);
+                                                        $json = $json
+                                                                ->getContent();
+                                                        $data = json_decode(
+                                                                $json);
+                                                        $video_url = $data
+                                                                ->video_url;
+
+                                                    } else {
+                                                        $video_url = false;
+                                                    }
 
                                                 } else {
                                                     $video_url = false;
                                                 }
-
-                                            } else {
-                                                $video_url = false;
                                             }
                                         }
+
                                         if (!$video_url) {
                                             $params['error'] = true;
                                         } else {
